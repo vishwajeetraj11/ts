@@ -55,3 +55,17 @@ When do we use Type Annotation:
 When do we use Type inference: - TS guesses the type. 
 In general, we are going to rely on inference always.
 */
+
+// lec 19
+// When do you use an annotations
+// 1) Functions that return the 'any' type
+const json = '{"x":10,"y":20}';
+const coordinates = JSON.parse(json);
+console.log(coordinates);
+
+/*
+any: 
+- A type, just as 'string' or boolean are
+- Means TS has no idea what this is - can't check for correct property references
+- Avoid variables with 'any' at all costs
+*/
