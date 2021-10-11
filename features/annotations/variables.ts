@@ -69,3 +69,26 @@ any:
 - Means TS has no idea what this is - can't check for correct property references
 - Avoid variables with 'any' at all costs
 */
+
+/*
+2) when we declare a variable on one line and initialize it later
+*/
+
+let words = ['red', 'green', 'blue'];
+let foundWord: boolean;
+
+for (let i = 0; i < words.length; i++) {
+  if (words[i] === 'green') {
+    foundWord = true;
+  }
+}
+// lec 22
+// 3) Variable whose type cannot be inferred correctly
+let numbers = [-45, -2, 34];
+let numberAboveZero: boolean | number;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
+  }
+}
