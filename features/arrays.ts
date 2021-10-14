@@ -56,3 +56,13 @@ carMakers.map((car: string) => {
 // 4. Flexible types
 const importantDates = [new Date(), '2030-10-10']; // inferred (string | Date)[]
 const importantDatesX: (Date | string)[] = [new Date(), '2030-10-10']; 
+
+/*
+
+lec 32
+
+Where to use types arrays? 
+Any time we need to represent a collection of records with some arbitrary sort order.
+
+
+*/
