@@ -34,7 +34,17 @@ class Sorter {
     //     this.collection = collection
     // }
 
-    // collection will only have methods that are common to number[] and string[]
+    /* collection will only have methods that are common to number[] and string[]
+     declaring collection: number[] | string (like this.)
+     would throw Error: Index signature in type 'string | number[]' only permits reading.
+     simply because in case of arrays you can change the value at index i.
+     in case of strings you cant because strings are immutable in js.
+     and when you declare a variable type string | number[] then you can only be allowed to do things/access methods or properties that are common to string and number[]
+     try it. const red = 'red'; 
+             red[0]='X';
+             console.log(red); // red 
+
+    */
     constructor(public collection: number[] | string) {
     }
 
