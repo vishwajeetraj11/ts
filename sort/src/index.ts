@@ -53,15 +53,38 @@ class Sorter {
         for (let i = 0; i < length - 1; i++) {
             for (let j = 0; j < (length - 1 - i); j++) {
 
-                // If colllection is an array of numbers.
-                if (this.collection[j] > this.collection[j + 1]) {
-                    const temp = this.collection[j]
-                    this.collection[j] = this.collection[j + 1]
-                    this.collection[j + 1] = temp;
+                /* 
+                All of this only works if collection is number[]
+                If colllection is an array of numbers. 
+                A type guard is going to be a check on type of this.collection. Once we run a type guard we are essentially going to clarify the type of value we are working with, it will restore access to all the different properties associated with this.collection with an array of numbers and we would not have to be limited to just the properties that are common between an a string and an array of numbers.
+
+                Setting up a typeguard
+                - Narrow type of a value to a primary type
+                typeof -> number,string,boolean,symbol
+                - Narrow down every other type of value
+                instanceof -> Every other value that is created with a constructor function
+
+                This type check is only going to work in this way to restore access to all the properties in the union for number, string, boolean,symbol
+                */
+
+                // [[ TYPE GUARD ]]
+                if (this.collection instanceof Array) { // This is to check to see if we are working with Array 
+                    /* Inside this if code block. this.collection have access to all Array methods which was not the case earlier. Earlier we only had access to methods/properties common between string and number[] */
+                    if (this.collection[j] > this.collection[j + 1]) {
+                        const temp = this.collection[j]
+                        this.collection[j] = this.collection[j + 1]
+                        this.collection[j + 1] = temp;
+                    }
                 }
 
+                // Only going to work if collection is a string
                 // If collection is a string, do this logic.
                 // logic to compare and swap characters in a string
+                if (typeof this.collection === 'string') {
+                    if (this.collection[j] > this.collection[j + 1]) {
+
+                    }
+                }
             }
         }
     }
