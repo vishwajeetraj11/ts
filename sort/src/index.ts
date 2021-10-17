@@ -26,10 +26,44 @@ In order to tell ts compiler to get all the code from src dir and send results i
     tsc -w                                               Watch all the files inside of the src (rootDir). So anytime we make any change the compiler will automatically recompile all ts codes to js and put it in build folder.  So that we dont have to run tsc again and again
 */
 
-console.log('Hi, There')
+const array = [7, 10, 4, 3, 20, 15];
 
-const logger = (message: string) => {
-    console.log(message)
+class Sorter {
+    // collection: number[];
+    // constructor(collection: number[]) {
+    //     this.collection = collection
+    // }
+    constructor(public collection: number[]) {
+    }
+
+    sort(): void {
+        const { length } = this.collection;
+        for (let i = 0; i < length - 1; i++) {
+            for (let j = 0; j < (length - 1 - i); j++) {
+                if (this.collection[j] > this.collection[j + 1]) {
+                    let temp: number;
+                    temp = this.collection[j]
+                    this.collection[j] = this.collection[j + 1]
+                    this.collection[j + 1] = temp;
+                }
+            }
+        }
+    }
 }
 
-logger('apple')
+const sorter = new Sorter([10, 3, -5, 0])
+sorter.sort()
+console.log(sorter.collection)
+
+// for(let i=0; i<array.length-1;i++) {
+//     for(let j=0; j<(array.length-1-i); j++){
+//         if(array[j]>array[j+1]) {
+//             let temp: number;
+//             temp = array[j]
+//             array[j]=array[j+1]
+//             array[j+1]=temp;
+//         }
+//     }
+// }
+
+// console.log(array)
