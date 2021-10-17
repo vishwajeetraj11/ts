@@ -1,5 +1,6 @@
 "use strict";
 /*
+lec 72
 tsc [filename].ts -> Run in terminal
 when we run this in the terminal typescript is going to compile that file and give a [filename].js.
 so essentially it just takes the name of the files and turns all the code in js.
