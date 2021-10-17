@@ -33,19 +33,25 @@ class Sorter {
     // constructor(collection: number[]) {
     //     this.collection = collection
     // }
-    constructor(public collection: number[]) {
+
+    // collection will only have methods that are common to number[] and string[]
+    constructor(public collection: number[] | string) {
     }
 
     sort(): void {
         const { length } = this.collection;
         for (let i = 0; i < length - 1; i++) {
             for (let j = 0; j < (length - 1 - i); j++) {
+
+                // If colllection is an array of numbers.
                 if (this.collection[j] > this.collection[j + 1]) {
-                    let temp: number;
-                    temp = this.collection[j]
+                    const temp = this.collection[j]
                     this.collection[j] = this.collection[j + 1]
                     this.collection[j + 1] = temp;
                 }
+
+                // If collection is a string, do this logic.
+                // logic to compare and swap characters in a string
             }
         }
     }
