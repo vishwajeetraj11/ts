@@ -30,7 +30,7 @@ import { Sorter } from "./Sorter";
 import { NumbersCollection } from './NumbersCollection'
 import { CharactersCollection } from "./CharactersCollection";
 
-const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
+// const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
 
 // Numbers
 // const sorter = new Sorter(numbersCollection)
@@ -38,10 +38,10 @@ const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
 // console.log(numbersCollection.data)
 
 // String
-const charactersCollection = new CharactersCollection('Xaayb');
-const sorter = new Sorter(charactersCollection)
-sorter.sort()
-console.log(charactersCollection.data)
+// const charactersCollection = new CharactersCollection('Xaayb');
+// const sorter = new Sorter(charactersCollection)
+// sorter.sort()
+// console.log(charactersCollection.data)
 
 
 // for(let i=0; i<array.length-1;i++) {
