@@ -29,6 +29,8 @@ In order to tell ts compiler to get all the code from src dir and send results i
 import { Sorter } from "./Sorter";
 import { NumbersCollection } from './NumbersCollection'
 import { CharactersCollection } from "./CharactersCollection";
+import { LinkedList } from './LinkedinList'
+
 
 // const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
 
@@ -56,3 +58,14 @@ import { CharactersCollection } from "./CharactersCollection";
 // }
 
 // console.log(array)
+
+const linkedList = new LinkedList();
+
+linkedList.add(-5)
+linkedList.add(50)
+linkedList.add(-3)
+linkedList.add(4)
+
+const sorter = new Sorter(linkedList);
+sorter.sort();
+linkedList.print()

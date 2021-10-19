@@ -32,7 +32,7 @@ export class LinkedList {
         let len = 1;
         let node = this.head;
         while (node.next) {
-            length++;
+            len++;
             node = node.next;
         }
         return len;
