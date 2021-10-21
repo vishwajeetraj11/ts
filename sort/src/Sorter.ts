@@ -100,3 +100,19 @@ Abstract Class
 - The implementation methods can refer to other methods that don't actually exist yet (we still have to provide names and types for the un-implemented methods)
 - Can make child classes promise to implement some other method.
 */
+
+/*
+lec 93
+
+Compare and Contrast of Interfaces vs Abstract Classes.
+
+Interfaces
+- Sets up a contract between different classes
+- Use when we have very different objects that we want to work together.
+- Promotes loose coipling
+
+Inheritance/Abstract Classes
+- Sets up a contract between different classes
+- Use when we are trying to build up a definition
+- Strongly couples classes together
+*/
