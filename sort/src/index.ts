@@ -32,7 +32,21 @@ import { CharactersCollection } from "./CharactersCollection";
 import { LinkedList } from './LinkedinList'
 
 
-// const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
+const numbersCollection = new NumbersCollection([3, 10, 2, -3, -1])
+numbersCollection.sort()
+console.log(numbersCollection.data)
+
+const charactersCollection = new CharactersCollection('XEAfa');
+charactersCollection.sort();
+console.log(charactersCollection.data)
+
+const linkedlist = new LinkedList();
+linkedlist.add(0)
+linkedlist.add(-3)
+linkedlist.add(0)
+linkedlist.add(10)
+linkedlist.sort()
+linkedlist.print()
 
 // Numbers
 // const sorter = new Sorter(numbersCollection)
@@ -59,13 +73,13 @@ import { LinkedList } from './LinkedinList'
 
 // console.log(array)
 
-const linkedList = new LinkedList();
+// const linkedList = new LinkedList();
 
-linkedList.add(-5)
-linkedList.add(50)
-linkedList.add(-3)
-linkedList.add(4)
+// linkedList.add(-5)
+// linkedList.add(50)
+// linkedList.add(-3)
+// linkedList.add(4)
 
-const sorter = new Sorter(linkedList);
-sorter.sort();
-linkedList.print()
+// const sorter = new Sorter(linkedList);
+// sorter.sort();
+// linkedList.print()

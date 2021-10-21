@@ -5,8 +5,15 @@ interface Sortable {
     swap(leftIndex: number, rightIndex: number): void;
 }
 
-export class Sorter {
+export abstract class Sorter {
 
+    /*
+    abstract - it is used to mark certain methods to exist in the future
+    */
+
+    abstract compare(leftIndex: number, rightIndex: number): boolean;
+    abstract swap(leftIndex: number, rightIndex: number): void;
+    abstract length: number;
 
     /* collection will only have methods that are common to number[] and string[]
      declaring collection: number[] | string (like this.)
@@ -24,11 +31,11 @@ export class Sorter {
     // constructor(collection: number[]) {
     //     this.collection = collection
     // }
-    constructor(public collection: Sortable) {
-    }
+    // constructor(public collection: Sortable) {
+    // }
 
     sort(): void {
-        const { length } = this.collection;
+        const { length } = this;
         // for (let i = 0; i < length - 1; i++) {
         //     for (let j = 0; j < (length - 1 - i); j++) {
 
@@ -69,11 +76,27 @@ export class Sorter {
 
         for (let i = 0; i < length - 1; i++) {
             for (let j = 0; j < (length - 1 - i); j++) {
-                if (this.collection.compare(j, j + 1)) {
-                    this.collection.swap(j, j + 1)
+                if (this.compare(j, j + 1)) {
+                    this.swap(j, j + 1)
                 }
             }
         }
 
     }
 }
+
+/*
+lec 90
+
+Turning Sorter class from a normal class to abstract class.
+Simply because Sorter class will never be used directly its always going to be inherited.
+
+
+Abstract Class
+
+- Can't be used to create an object directly.
+- Only used as a parent class.
+- Can contain real implementation for some methods.
+- The implementation methods can refer to other methods that don't actually exist yet (we still have to provide names and types for the un-implemented methods)
+- Can make child classes promise to implement some other method.
+*/
