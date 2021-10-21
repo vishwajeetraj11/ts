@@ -24,15 +24,43 @@ const matches = fs.readFileSync('./football.csv', {
 }).split('\n').map((row: string): string[] => {
     return row.split(',')
 })
+
+// const matchResult = {
+//     HomeWin: 'H',
+//     AwayWin: 'A',
+//     Draw: 'D'
+// }
+
+enum matchResult {
+    HomeWin = 'H',
+    AwayWin = 'A',
+    Draw = 'D'
+}
+
 // Team
 let manUnitedWins = 0;
 
 for (let match of matches) {
-    if (match[1] === 'Man United' && match[5] === 'H') {
+    if (match[1] === 'Man United' && match[5] === matchResult.HomeWin) {
         manUnitedWins++
-    } else if (match[2] === 'Man United' && match[5] === 'A') {
+    } else if (match[2] === 'Man United' && match[5] === matchResult.AwayWin) {
         manUnitedWins++
     }
 }
 
 console.log(`Man United won ${manUnitedWins} games.`)
+
+/*
+lec 99:-
+Current Issues:
+- Magic String Comparisons. { match[5] === 'H' Doesn't make sense for another developer who might read this code. }
+- Source of data is hardcoded.
+- Data array is all strings, even though it might have numbers in it.
+- Variable named after a specific team.
+- Analysis type is fixed
+- No ability to output the report in different formats
+
+lec 100:-
+enum - enumeration
+
+*/
