@@ -35,12 +35,17 @@
 
 // Generic 
 
-class holdAnything<TypeOfData> {
-    data: TypeOfData
+class holdAnything<T> {
+    data: T
+
+    add(a: T): T {
+        return a
+    }
 }
 
 const holdNumber = new holdAnything<number>();
 holdNumber.data = 123;
+holdNumber.add(20);
 
 const holdString = new holdAnything<string>();
 holdString.data = 's';
