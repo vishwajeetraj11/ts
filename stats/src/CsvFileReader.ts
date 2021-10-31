@@ -26,17 +26,19 @@ export class CsvFileReader {
                 return row.split(',')
             })
             // .map((row: string[]): (Date | string | number | matchResult)[] => { // use touple --works better here 
-            .map((row: string[]): MatchData => {
-                return [
-                    dateStringToDate(row[0]),
-                    row[1],
-                    row[2],
-                    parseInt(row[3]),
-                    parseInt(row[4]),
-                    row[5] as matchResult, // 'H', 'A', 'D',
-                    row[6]
-                ]
-            })
+            .map(this.mapRow)
+    }
+
+    mapRow(row: string[]): MatchData {
+        return [
+            dateStringToDate(row[0]),
+            row[1],
+            row[2],
+            parseInt(row[3]),
+            parseInt(row[4]),
+            row[5] as matchResult, // 'H', 'A', 'D',
+            row[6]
+        ]
     }
 }
 

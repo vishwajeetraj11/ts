@@ -17,13 +17,12 @@ After Parsing.
 /* Cannot find module fs. (because of no types present) 
 npm i @types/node
 */
-import fs, { read } from 'fs';
 import { CsvFileReader } from './CsvFileReader';
 import { matchResult } from './MatchResults';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
-console.log(reader.data[0][0])
+
 // const matchResult = {
 //     HomeWin: 'H',
 //     AwayWin: 'A',
