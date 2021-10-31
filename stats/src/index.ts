@@ -18,7 +18,8 @@ After Parsing.
 npm i @types/node
 */
 import fs, { read } from 'fs';
-import { CsvFileReader } from './CSVFileReader';
+import { CsvFileReader } from './CsvFileReader';
+import { matchResult } from './MatchResults';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
@@ -28,11 +29,6 @@ reader.read();
 //     Draw: 'D'
 // }
 
-enum matchResult {
-    HomeWin = 'H',
-    AwayWin = 'A',
-    Draw = 'D'
-}
 
 // Team
 let manUnitedWins = 0;
