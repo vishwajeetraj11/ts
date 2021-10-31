@@ -23,6 +23,7 @@ import { matchResult } from './MatchResults';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
+console.log(reader.data[0][0])
 // const matchResult = {
 //     HomeWin: 'H',
 //     AwayWin: 'A',
