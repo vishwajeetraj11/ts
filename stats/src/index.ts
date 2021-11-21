@@ -18,7 +18,6 @@ After Parsing.
 npm i @types/node
 */
 import { CsvFileReader } from './CsvFileReader';
-import { matchResult } from './MatchResults';
 import { MatchReader } from './MatchReader';
 
 // Create an object that satisfies the 'DataReader' interface
@@ -28,19 +27,6 @@ const csvFileReader = new CsvFileReader('football.csv');
 const matchReader = new MatchReader(csvFileReader);
 matchReader.load()
 // matchReader.matches
-
-// Team
-let manUnitedWins = 0;
-
-for (let match of matchReader.matches) {
-    if (match[1] === 'Man United' && match[5] === matchResult.HomeWin) {
-        manUnitedWins++
-    } else if (match[2] === 'Man United' && match[5] === matchResult.AwayWin) {
-        manUnitedWins++
-    }
-}
-
-console.log(`Man United won ${manUnitedWins} games.`)
 
 /*
 lec 99:-
