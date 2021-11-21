@@ -48,7 +48,7 @@ Current Issues:
 - Magic String Comparisons. { match[5] === 'H' Doesn't make sense for another developer who might read this code. }
 - Source of data is hardcoded. { At the very top we've got that data hardcoded and we should prefer like some api get request.} { If we wanted to ever change our source of information to our program we would have to make a very significant change in str of program.}
 - Data array is all strings, even though it might have numbers in it.
-- Variable named after a specific team.
+- Variable named after a specific team. { manUnitedWins, what if we need to check if another team wins }
 - Analysis type is fixed
 - No ability to output the report in different formats
 
