@@ -19,6 +19,9 @@ npm i @types/node
 */
 import { CsvFileReader } from './CsvFileReader';
 import { MatchReader } from './MatchReader';
+import { ConsoleReport } from './reportTargets/ConsoleReports';
+import { WinsAnalysis } from './analyzers/WinsAnalysis';
+import { Summary } from './Summery';
 
 // Create an object that satisfies the 'DataReader' interface
 const csvFileReader = new CsvFileReader('football.csv');
@@ -27,6 +30,13 @@ const csvFileReader = new CsvFileReader('football.csv');
 const matchReader = new MatchReader(csvFileReader);
 matchReader.load()
 // matchReader.matches
+
+const summary = new Summary(
+    new WinsAnalysis('Man United'),
+    new ConsoleReport()
+)
+
+summary.buildAndPrintReport(matchReader.matches);
 
 /*
 lec 99:-
