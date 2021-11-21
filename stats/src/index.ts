@@ -61,3 +61,19 @@ Enums
 - Primary goal is to signal to other engineers that these are all closely related values.
 - Use whenever we have a small fixed set of values that are all closely related are known at compile time.
 */
+
+/*
+lec 118
+We did two refactors:
+Inheritance (inside inheritance folder) vs Compostion (current)
+
+Inheritance - Characterized by an 'is a' relationship between two classes.
+Composition - Characterized by a 'has a' relationship between two classes.
+
+
+lec 120 ->vvi
+Favor object composition over class inheritance.
+ - The most misunderstood statement ever.
+ - The statement is correct.
+
+*/
