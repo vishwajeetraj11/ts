@@ -16,3 +16,10 @@ trigger(eventName: string): void {Triggers an event to tell other parts of the a
 fetch(): Promise {Fetches some data from the server about a particular user}
 save(): Promise {Saves some data about this user to this server}
 */
+
+import { User } from "./models/User";
+
+const user = new User({ name: 'Vishwajeet Raj', age: 20 });
+
+console.log(user.get('name'));
+console.log(user.get('age'));
