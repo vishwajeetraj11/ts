@@ -25,4 +25,8 @@ user.on('change', () => {
     console.log('Apples')
 })
 
-console.log(user);
+user.on('exit', () => {
+    console.log('User exited the application.')
+})
+
+user.trigger('change');
