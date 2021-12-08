@@ -17,6 +17,12 @@ fetch(): Promise {Fetches some data from the server about a particular user}
 save(): Promise {Saves some data about this user to this server}
 */
 
+/*
+JSON Server
+npm i -g json-server
+json-server -w db.json
+*/
+
 import { User } from "./models/User";
 
 const user = new User({ name: 'Vishwajeet Raj', age: 20 });
