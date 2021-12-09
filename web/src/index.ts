@@ -25,14 +25,7 @@ json-server -w db.json
 
 import { User } from "./models/User";
 
-const user = new User({ name: 'Vishwajeet Raj', age: 20 });
+const user = new User({ id: 1 });
 
-user.on('change', () => {
-    console.log('Apples')
-})
+user.fetch();
 
-user.on('exit', () => {
-    console.log('User exited the application.')
-})
-
-user.trigger('change');
