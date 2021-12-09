@@ -61,4 +61,17 @@ export class User {
             }
         })
     }
+
+    save(): void {
+        const id = this.get('id')
+        if (id) {
+            console.log('put')
+            // PUT Request
+            axios.put(`http://localhost:3000/users/${id}`, this.data)
+        } else {
+            console.log('post')
+            // POST REQUEST
+            axios.post(`http://localhost:3000/users/`, this.data)
+        }
+    }
 }
