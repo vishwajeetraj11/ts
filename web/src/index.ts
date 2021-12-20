@@ -29,3 +29,9 @@ const user = new User({ name: 'Dad', age: 78 });
 
 user.save();
 
+user.events.on('change', () => {
+    console.log('change')
+})
+
+user.events.trigger('change')
+

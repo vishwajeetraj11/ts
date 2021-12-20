@@ -1,14 +1,14 @@
 import axios, { AxiosResponse } from "axios";
-
+import { Eventing } from './Eventing';
 interface UserProps {
     id?: number;
-    name?: string,
-    age?: number
+    name?: string;
+    age?: number;
 }
 
 
 export class User {
-
+    public events: Eventing = new Eventing();
     /*
     Usually when we write a type annotation for an object, we just write out the name of the property 
     Ex- click ==> events: { [key: string]: Callback[] } = {};
