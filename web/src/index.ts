@@ -25,10 +25,17 @@ json-server -w db.json
 
 import { User } from "./models/User";
 
-const user = new User({ name: 'Dad', age: 78 });
+const user = new User({ id: 1, name: 'newer ' });
 
-// A quick reminder on accessors
+user.on('save', () => {
+    console.log(user);
+})
 
+user.save()
+
+
+
+/* A quick reminder on accessors
 class Person {
     constructor(public firstName: string, public lastName: string) { }
 
@@ -43,3 +50,8 @@ class Person {
 const person = new Person('first', 'last');
 // console.log(person.fullName())
 console.log(person.fullName)
+*/
+
+/*
+Reminder on how 'this' works in javascript.
+*/
