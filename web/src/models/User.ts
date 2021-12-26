@@ -19,16 +19,6 @@ export class User {
     The point is we just don't know it yet what the different events name are that we will have tied to a user so to solve that we say key: string.
     */
 
-    constructor(private data: UserProps) { }
-
-    get(propName: string): (string | number) {
-        return this.data[propName]
-    }
-
-    set(update: UserProps): void {
-        Object.assign(this.data, update);
-    }
-
 }
 
 /*
