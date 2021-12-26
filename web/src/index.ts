@@ -27,10 +27,19 @@ import { User } from "./models/User";
 
 const user = new User({ name: 'Dad', age: 78 });
 
+// A quick reminder on accessors
 
-user.events.on('change', () => {
-    console.log('change')
-})
+class Person {
+    constructor(public firstName: string, public lastName: string) { }
 
-user.events.trigger('change')
+    // fullName(): string {
+    //     return `${this.firstName} ${this.lastName}`
+    // }
+    get fullName(): string {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
 
+const person = new Person('first', 'last');
+// console.log(person.fullName())
+console.log(person.fullName)
