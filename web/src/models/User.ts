@@ -1,14 +1,16 @@
-import axios, { AxiosResponse } from "axios";
 import { Eventing } from './Eventing';
-interface UserProps {
+import { Sync } from './Sync';
+export interface UserProps {
     id?: number;
     name?: string;
     age?: number;
 }
 
+const rootUrl = 'http://localhost:3000/users'
 
 export class User {
     public events: Eventing = new Eventing();
+    public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
     /*
     Usually when we write a type annotation for an object, we just write out the name of the property 
     Ex- click ==> events: { [key: string]: Callback[] } = {};
@@ -27,31 +29,6 @@ export class User {
         Object.assign(this.data, update);
     }
 
-    fetch(): void {
-        axios.get(`http://localhost:3000/users/${this.get('id')}`).then((response: AxiosResponse): void => {
-            this.set(response.data);
-            console.log(this.data)
-        }).catch((e: any) => {
-            if (axios.isAxiosError(e)) {
-                if (e.response.status === 404) {
-                    console.warn('User not found.')
-                }
-            }
-        })
-    }
-
-    save(): void {
-        const id = this.get('id')
-        if (id) {
-            console.log('put')
-            // PUT Request
-            axios.put(`http://localhost:3000/users/${id}`, this.data)
-        } else {
-            console.log('post')
-            // POST REQUEST
-            axios.post(`http://localhost:3000/users/`, this.data)
-        }
-    }
 }
 
 /*
