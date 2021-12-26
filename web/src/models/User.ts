@@ -1,3 +1,4 @@
+import { Attributes } from './Attributes';
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 export interface UserProps {
@@ -11,6 +12,12 @@ const rootUrl = 'http://localhost:3000/users'
 export class User {
     public events: Eventing = new Eventing();
     public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
+    public attributes: Attributes<UserProps>;
+
+    constructor(attrs: UserProps) {
+        this.attributes = new Attributes<UserProps>(attrs);
+    }
+
     /*
     Usually when we write a type annotation for an object, we just write out the name of the property 
     Ex- click ==> events: { [key: string]: Callback[] } = {};
