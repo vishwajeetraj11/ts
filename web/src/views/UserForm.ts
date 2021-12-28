@@ -10,18 +10,21 @@ export class UserForm {
             <div>User age: ${this.model.get('age')}</div>
             <input />
             <button>Click Me</button>
+            <button class='set-age'>Set Random Age</button>
             </div>
         `
     }
 
-    eventsMap(): { [key: string]: () => void } {
-        return {
-            'click:button': this.onButtonClick,
-        };
+    onSetAgeClick(): void {
+        // this.model.set({ age: 30 });
+        // this.model.trigger('change');
+        console.log('onSetAge click')
     }
 
-    onButtonClick(): void {
-        console.log('Yeeeh!')
+    eventsMap(): { [key: string]: () => void } {
+        return {
+            'click:.set-age': this.onSetAgeClick,
+        };
     }
 
     bindEvents(fragment: DocumentFragment): void {
