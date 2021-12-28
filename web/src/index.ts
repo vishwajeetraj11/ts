@@ -28,11 +28,17 @@ import { UserForm } from './views/UserForm';
 
 const user = User.buildUser({ name: 'NAME', age: 40 })
 
-const userForm = new UserForm(
-    document.getElementById('root'), user
-);
+const root = document.getElementById('root');
 
-userForm.render()
+if (root) {
+    const userForm = new UserForm(
+        document.getElementById('root'), user
+    );
+
+    userForm.render();
+} else {
+    throw new Error('Root Element not found.')
+}
 
 /* A quick reminder on accessors
 class Person {
