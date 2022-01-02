@@ -24,18 +24,18 @@ json-server -w db.json
 */
 
 import { User } from './models/User';
-import { UserForm } from './views/UserForm';
+import { UserEdit } from './views/UserEdit';
 
 const user = User.buildUser({ name: 'NAME', age: 40 })
 
 const root = document.getElementById('root');
 
 if (root) {
-    const userForm = new UserForm(
+    const userEdit = new UserEdit(
         document.getElementById('root'), user
     );
 
-    userForm.render();
+    userEdit.render();
 } else {
     throw new Error('Root Element not found.')
 }
