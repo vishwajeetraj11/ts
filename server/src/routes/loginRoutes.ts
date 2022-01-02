@@ -55,5 +55,9 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
         res.send('Please send email.')
     }
 })
+router.get('/logout', (req: Request, res: Response) => {
+    req.session = undefined;
+    res.redirect('/');
+})
 
 export { router };
