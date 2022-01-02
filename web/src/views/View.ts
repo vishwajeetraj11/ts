@@ -1,10 +1,16 @@
-import { User } from "../models/User";
+// interface ModelForView {
+//     on(eventName: string, callback: () => void): void;
 
-export abstract class View {
+import { Model } from "../models/Model";
+
+// }
+
+// export abstract class View<T extends ModelForView> {
+export abstract class View<T extends Model<K>, K> {
     abstract template(): string;
     abstract eventsMap(): { [key: string]: () => void }
 
-    constructor(public parent: Element, public model: User) {
+    constructor(public parent: Element, public model: T) {
         this.bindModel()
     }
 
