@@ -23,22 +23,48 @@ npm i -g json-server
 json-server -w db.json
 */
 
-import { User } from './models/User';
+// import { UserList } from './views/UserList';
+// import { Collection } from './models/Collection';
+// import { UserProps, User } from './models/User';
+// import { UserEdit } from './views/UserEdit';
+
+// const user = User.buildUser({ name: 'NAME', age: 40 })
+
+// const root = document.getElementById('root');
+
+// if (root) {
+//     const userEdit = new UserEdit(
+//         document.getElementById('root'), user
+//     );
+
+//     userEdit.render();
+// } else {
+//     throw new Error('Root Element not found.')
+// }
+
+import { UserList } from './views/UserList';
+import { Collection } from './models/Collection';
+import { UserProps, User } from './models/User';
 import { UserEdit } from './views/UserEdit';
 
-const user = User.buildUser({ name: 'NAME', age: 40 })
 
-const root = document.getElementById('root');
+const collection = new Collection(
+    'http://localhost:3000/users',
+    (json: UserProps) => {
+        return User.buildUser(json);
+    }
+);
 
-if (root) {
-    const userEdit = new UserEdit(
-        document.getElementById('root'), user
-    );
+collection.on('change', () => {
+    const root = document.getElementById('root');
+    if (root) {
+        const userList = new UserList(root, collection)
+        userList.render();
 
-    userEdit.render();
-} else {
-    throw new Error('Root Element not found.')
-}
+    }
+});
+
+collection.fetch();
 
 /* A quick reminder on accessors
 class Person {
