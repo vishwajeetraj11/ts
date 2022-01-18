@@ -39,7 +39,13 @@ Decorators-
 - Second argument is the key of the property/method/accessor on the object.
 - Third argument is the property descriptor.
 - Decorators are applied when the code for this class is ran (not when an instance is created.)
-    */
+
+Property Descriptor for Methods
+writable - whether or not this property can be changed.
+enumerable - whether or not this property get looped over by a 'for...in'
+value - current value
+configurable - property definition can be changed and property can be deleted.
+*/
 
 import express, { Request, Response } from 'express';
 import { router } from './routes/loginRoutes'
