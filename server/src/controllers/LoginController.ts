@@ -1,11 +1,17 @@
-import { Request, Response } from "express";
-import { controller, get } from "./decorators"
+import { NextFunction, Request, Response } from "express";
+import { controller, get, use } from "./decorators"
+
+function logger(req: Request, res: Response, next: NextFunction) {
+  console.log('Request was made!!!');
+  next();
+}
 
 @controller('/auth')
 class LoginController {
-    @get('/login')
-    getLogin(req: Request, res: Response): void {
-        res.send(`
+  @get('/login')
+  @use(logger)
+  getLogin(req: Request, res: Response): void {
+    res.send(`
         <form method="POST">
             <div>
               <label>Email</label>
@@ -18,5 +24,5 @@ class LoginController {
             <button>Submit</button>
           </form>
         `)
-    }
+  }
 }
