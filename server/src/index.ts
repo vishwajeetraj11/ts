@@ -17,7 +17,29 @@ CONS-
     3. Inputs to a server (or any program with external inputs) are not guranteed to exist, or to be of the correct type. (the type definition file makes it even worse)
 PROS-
     1. Addressing these type of issues with Typescript can force us to write better code.
-*/
+
+Whenever we make use of typescript, the main features of the language is classes and interfaces. So, making typescript work better with some javascript library, the discussion comes down to how can we make this js library work in a class based style.
+
+ES2015 -----------------
+                        |
+                        | -- Don't really exist in Javascript.
+                        |
+Typescript Classes -----
+
+Classes in Javascript are 'syntactical sugar' over prototypal inheritance.
+
+Decorators- 
+- Functions that can be used to modify/change/anything different properties/methods in the class.
+- Not the same as Javascript decorators
+- Used inside/on classes only
+- Understanding the order in which decorators are ran are the key to understanding them
+- Experimental
+
+- First argument is the prototype of the object.
+- Second argument is the key of the property/method/accessor on the object.
+- Third argument is the property descriptor.
+- Decorators are applied when the code for this class is ran (not when an instance is created.)
+    */
 
 import express, { Request, Response } from 'express';
 import { router } from './routes/loginRoutes'
