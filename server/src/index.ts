@@ -67,6 +67,7 @@ import { router } from './routes/loginRoutes'
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import './controllers/LoginController';
+import './controllers/RootController';
 import { AppRouter } from './appRouter';
 
 const app = express();
@@ -75,7 +76,7 @@ app.use(cookieSession({
     keys: ['dsmfkmfieowfmskdlm']
 }))
 
-app.use(router);
+// app.use(router);
 app.use(AppRouter.getInstance())
 
 app.listen(3000, () => {
