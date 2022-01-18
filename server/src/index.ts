@@ -76,7 +76,7 @@ app.use(cookieSession({
 }))
 
 app.use(router);
-// app.use(controllerRouter)
+app.use(controllerRouter)
 
 app.listen(3000, () => {
     console.log('Listening on port: 3000')
